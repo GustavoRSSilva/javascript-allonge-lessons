@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/GustavoRSSilva/javascript-allonge-lessons/issues"
   },
-  "homepage": "https://github.com/GustavoRSSilva/javascript-allonge-lessons#readme"
+  "homepage": "https://github.com/GustavoRSSilva/javascript-allonge-lessons#readme",
+  "dependencies": {
+    "plop": "^1.8.0"
+  }
 }
