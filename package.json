@@ -1,0 +1,22 @@
+{
+  "name": "javascript-allonge-lessons",
+  "version": "1.0.0",
+  "description": "lessons from the book javascript allonge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustavoRSSilva/javascript-allonge-lessons.git"
+  },
+  "keywords": [
+    "allonge"
+  ],
+  "author": "GustavoRSSilva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GustavoRSSilva/javascript-allonge-lessons/issues"
+  },
+  "homepage": "https://github.com/GustavoRSSilva/javascript-allonge-lessons#readme"
+}
