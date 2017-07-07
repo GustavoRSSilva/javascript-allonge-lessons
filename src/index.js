@@ -27,6 +27,12 @@ console.log('\n');
 console.log('in the function ((diameter) => diameter+ 3.14)(1+1) the 1+1');
 console.log('is revolved first, then is proced to the function result\n');
 
+
+//TODO
+console.log('((x) => (y) => x)(2)(4) :');
+console.log(((x) => (y) => x)(2)(4));
+console.log('\n');
+
 // TODO
 const func1 = (function() {
   return (function() { return arguments[0]; })('inner');
