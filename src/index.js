@@ -27,15 +27,19 @@ console.log('\n');
 console.log('in the function ((diameter) => diameter+ 3.14)(1+1) the 1+1');
 console.log('is revolved first, then is proced to the function result\n');
 
+//  pag21
+console.log(`Closures and scopes`);
+console.log('((x) => (y) => x)(2)(4) :');
+console.log(((x) => (y) => x)(2)(4));
+console.log('\n');
 //  pag22
 console.log('Functions that contain no free variables are called pure funtions.');
 console.log('Functions that contain one or more free variables are called closures.');
 
 
-//TODO
-console.log('((x) => (y) => x)(2)(4) :');
-console.log(((x) => (y) => x)(2)(4));
-console.log('\n');
+//  pag 24
+console.log('(x) => \n  (x,y) => \n    (w,z) => \n      (w) => \n        x + y + z');
+console.log(`Here the children overrides the parent this the equasion\n`);
 
 // TODO
 const func1 = (function() {
