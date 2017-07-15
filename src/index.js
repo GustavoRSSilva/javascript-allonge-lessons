@@ -41,6 +41,9 @@ console.log('Functions that contain one or more free variables are called closur
 console.log('(x) => \n  (x,y) => \n    (w,z) => \n      (w) => \n        x + y + z');
 console.log(`Here the children overrides the parent this the equasion\n`);
 
+//  pag 26
+console.log('anonymous functions are the functions without name (ex: (diameter) => diameter * 3.14159265)\n');
+
 // TODO
 const func1 = (function() {
   return (function() { return arguments[0]; })('inner');
