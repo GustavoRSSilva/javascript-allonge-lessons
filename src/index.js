@@ -44,6 +44,20 @@ console.log(`Here the children overrides the parent this the equasion\n`);
 //  pag 26
 console.log('anonymous functions are the functions without name (ex: (diameter) => diameter * 3.14159265)\n');
 
+//  pag 36
+console.log('const shadow values inside blocks and functions');
+console.log('((diameter) => {\n const Pi = 3.14159265;\n if (true) {\n  const Pi = 3;\n }\n return diamenter * PI})(2);\n}');
+
+const diam = ((diamenter) => {
+  const PI = 3.14159265;
+  if (true) {
+    const PI = 3;
+  }
+
+  return PI * diamenter
+})(2);
+console.log(`result = ${diam}\n`);
+
 // TODO
 const func1 = (function() {
   return (function() { return arguments[0]; })('inner');
