@@ -58,6 +58,16 @@ const diam = ((diamenter) => {
 })(2);
 console.log(`result = ${diam}\n`);
 
+
+//  pag 40
+const double = function repeat (str) {
+  return str + str;
+}
+console.log('const double = function repeat (str) {\n return str + str;\n}')
+console.log(`double.name = ${double.name}`);
+console.log('double: enviroment name');
+console.log('repeat: function expression name\n');
+
 // TODO
 const func1 = (function() {
   return (function() { return arguments[0]; })('inner');
