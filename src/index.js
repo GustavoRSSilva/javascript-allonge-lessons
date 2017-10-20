@@ -68,16 +68,45 @@ console.log(`double.name = ${double.name}`);
 console.log('double: enviroment name');
 console.log('repeat: function expression name\n');
 
-// TODO
+//  pag44
+console.log('function trueDat () { return trun } <- function deplacration');
+console.log('(function trueDat () { return trun }) <- expression, the function name trueDat is not evaluated outside the parentesis.');
+
+//  pag45
+console.log('Combinatior: Higher-order function that uses only function applications and earlier defined combinators to define a result from its arguments. This means that a combinator is a function and combines multiples functions passed througth the arguments\n');
+console.log('ex: const compose = (a, b) => (c) => a(b(c))');
+
+//  pag46
+console.log('Decorator: is higher-order function that takes one function as argument and returns another function.');
+console.log('ex: const not = (fn) => (x) => !fn(x)');
+
+//  pag48
+console.log('Composition, in order to avoid spaghetti code, developer can use composition (chaining two or more function together).');
+console.log('ex: const cookAndEat = (food) => eat(cook(food))');
+
+//  pag51
+console.log('Magic names.');
+console.log('const plus = function (a, b) {\n return arguments[0] + arguments[1]\n}');
+console.log('plus(2,3)');
+console.log('//=> 5\n');
+console.log('const args = function (a, b) {\n return arguments + arguments[1]\n}');
+console.log('args(2,3)');
+console.log('//=> { 0: 2, 1: 3 }\n');
+
+// pag53
+console.log('Magic name and fat arrows. The magic names this and arguments have a different behavion when you invoke a function that was defined with a fat arrow: intead of being bound  when the function is invoked, the fat arrow function always acquired the binding of this and arguments from its enclosing scope');
+console.log('const func1 = (function() {\n return (function() { return arguments[0]; })(\'inner\');\n})(\'outer\');');
 const func1 = (function() {
   return (function() { return arguments[0]; })('inner');
 })('outer');
 console.log(func1);
-
+console.log();
+console.log('const func2 = (function() {\n return (() => arguments[0])(\'inner\');\n})(\'outer\');');
 const func2 = (function() {
   return (() => arguments[0])('inner');
 })('outer');
 console.log(func2);
+console.log('If we use fat arrow, arguments will be defined in the outer enviroment, the one defined with function. And thus arguments[0] will refer to \'outer\', not to \'inner\'\n');
 
 //  pag61
 const tap = (value) =>
