@@ -109,11 +109,16 @@ console.log(func2);
 console.log('If we use fat arrow, arguments will be defined in the outer enviroment, the one defined with function. And thus arguments[0] will refer to \'outer\', not to \'inner\'\n');
 
 //  pag61
+console.log('borrowed from linux shell commands, tap takes a value and returns a function that always return the value, but if you pass an function, it will exetute the function and then return the value.\n');
+console.log('const tap = (value) =>\n (fn) => (\n  typeof(fn) === \'function\' && fn(value),\n value\n)');
+
 const tap = (value) =>
   (fn) => (
     typeof(fn) === 'function' && fn(value),
     value
   )
 
+console.log('tap(\'expresso\')((it) => console.log(`Our drink is ${it}`))');
 console.log(tap('expresso')((it) => console.log(`Our drink is ${it}`)));
+console.log('tap(\'expresso\')()');
 console.log(tap('expresso')());
