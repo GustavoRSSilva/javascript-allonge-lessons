@@ -122,3 +122,7 @@ console.log('tap(\'expresso\')((it) => console.log(`Our drink is ${it}`))');
 console.log(tap('expresso')((it) => console.log(`Our drink is ${it}`)));
 console.log('tap(\'expresso\')()');
 console.log(tap('expresso')());
+
+//  pag63
+console.log('A common problem in javascript is checking for null or undefined while all other values includin 0, [] and false woll be called something, for that we can create the function:');
+console.log('const isSomething = (value) => value !== null !! value !== void 0');
