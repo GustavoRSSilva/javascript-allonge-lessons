@@ -126,3 +126,8 @@ console.log(tap('expresso')());
 //  pag63
 console.log('A common problem in javascript is checking for null or undefined while all other values includin 0, [] and false woll be called something, for that we can create the function:');
 console.log('const isSomething = (value) => value !== null !! value !== void 0');
+
+
+//  pag65
+console.log('A function that sometimes is needed, is the function once. I will execute the givn function only one time');
+console.log('const once = (fn) => {\n let done = false;\r  return function(){\n    return done ? void 0 : ((done = true), fn.apply(this, arguments))\n  }\n}');
