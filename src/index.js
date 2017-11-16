@@ -131,3 +131,32 @@ console.log('const isSomething = (value) => value !== null !! value !== void 0')
 //  pag65
 console.log('A function that sometimes is needed, is the function once. I will execute the givn function only one time');
 console.log('const once = (fn) => {\n let done = false;\r  return function(){\n    return done ? void 0 : ((done = true), fn.apply(this, arguments))\n  }\n}');
+
+
+console.log(' Note: fn.length = the number of arguments expected by the function.');
+//  pag66
+console.log('Left variant Fucntions');
+console.log('const abcc = (a, b, ...c) =>{\n console.log(a);\n console.log(b);\n console.log(c);}');
+const abcc = (a, b, ...c) => {console.log(a); console.log(b); console.log(c);}
+console.log('result equals for abcc(1, 2, 3, 4, 5):');
+abcc(1, 2, 3, 4, 5);
+console.log(('however ECMAScript 2015 only allows gather parameters from the end of the list. This is not allowed'));
+console.log('const abcc = (..a, b, c) =>{\n console.log(a);\n console.log(b);\n console.log(c);}');
+console.log('returns //=> unexpected token');
+
+//  pag68
+console.log('Overcoming limtiations!!');
+console.log('we can gather the last argumentof a function using this functions:');
+console.log('const leftVariadic = (fn) => {');
+console.log(' if (fn.length < 1) {');
+console.log('  return fn;');
+console.log(' }');
+console.log(' else {');
+console.log('  return function (...args) {');
+console.log('   const gathered = args.slice(0, args.length - fn.length + 1),');
+console.log('   const spread = args.slice(args.length - fn.length + 1);');
+console.log('   return fn.apply(this, [gathered.concat(spread)])');
+console.log(' }');
+console.log('this way we turn around the ladt argument into the first of an function!!');
+
+//  pag71
