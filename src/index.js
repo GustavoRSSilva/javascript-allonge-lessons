@@ -186,3 +186,10 @@ console.log('|| evaluates if left-hand expression and if it is true, it will ret
 console.log('const even = (n) => n === 0 || (n !== 1 && even(n-2))');
 const even = (n) => n === 0 || (n !== 1 && even(n-2));
 console.log(`even(42) = ${even(42)}`);
+
+//  pag79
+console.log('Arrays are sorted collection of values.');
+console.log('An array cannot be compared directly, [2 + 2] === [2 + 2] //=> false');
+
+//  pag81
+console.log('We can extract arrays from arrays, ex: const [car, ...crd] = [1, 2, 3].');
