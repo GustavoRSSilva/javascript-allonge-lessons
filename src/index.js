@@ -67,6 +67,11 @@ console.log('const double = function repeat (str) {\n return str + str;\n}')
 console.log(`double.name = ${double.name}`);
 console.log('double: enviroment name');
 console.log('repeat: function expression name\n');
+console.log('\n');
+//  pag22
+console.log('Functions that contain no free variables are called pure funtions.');
+console.log('Functions that contain one or more free variables are called closures.');
+
 
 //  pag44
 console.log('function trueDat () { return trun } <- function deplacration');
@@ -159,4 +164,25 @@ console.log('   return fn.apply(this, [gathered.concat(spread)])');
 console.log(' }');
 console.log('this way we turn around the ladt argument into the first of an function!!');
 
-//  pag71
+//  pag72
+ console.log('The && and || operators are binary infix operators that perform "logical and" and "logical or" respectively:');
+
+ console.log(`false && false = ${false && false}`);
+ console.log(`false && true = ${false && true}`);
+ console.log(`true && false = ${true && false}`);
+ console.log(`true && true = ${true && true}`);
+
+ console.log(`false || false = ${false || false}`);
+ console.log(`false || true = ${false || true}`);
+ console.log(`true || false = ${true || false}`);
+ console.log(`true || true = ${true || true}`);
+
+//  pag74
+console.log('The !! turns any variable into a true or flase, ex !!currentUser, return if there is a user or not (does not return null)');
+console.log('&& evaluates if left-hand expression and if it is false, it will return false, ex: 0 && 1 => 0, if the left is true, it will evalute the right side, and return it.');
+console.log('|| evaluates if left-hand expression and if it is true, it will return true, ex: 1 || 2 => 2, if the left is false, it will evalute the right side, and return it.');
+
+//  pag75
+console.log('const even = (n) => n === 0 || (n !== 1 && even(n-2))');
+const even = (n) => n === 0 || (n !== 1 && even(n-2));
+console.log(`even(42) = ${even(42)}`);
