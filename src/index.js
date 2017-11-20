@@ -193,3 +193,30 @@ console.log('An array cannot be compared directly, [2 + 2] === [2 + 2] //=> fals
 
 //  pag81
 console.log('We can extract arrays from arrays, ex: const [car, ...crd] = [1, 2, 3].');
+
+//  pag82
+console.log('const oneTwoThree = ["one", "two, "three]');
+console.log('["zero, ...oneTwoThree"] = ["zero", "one", "two", "three"]');
+
+//  pag83
+console.log('const [what] = []');
+console.log('what\n //=> undefined');
+
+
+console.log('const [...arr] = []');
+console.log('arr\n //=> []');
+
+//  pag84
+console.log('const description = (nameAndOccupation) => {\n  if (nameAndOccupation.length < 2) {\n    return ["", "occupation missing"];\n  }\nelse {\n    const [[fist, last] , occupation] = nameAndOccupation;\n    return [fist, occupation];\n  }\n}');
+
+const description = (nameAndOccupation) => {
+  if (nameAndOccupation.length < 2) {
+    return ['', 'occupation missing'];
+  } else {
+    const [[fist, last] , occupation] = nameAndOccupation;
+    return [fist, occupation];
+  }
+}
+console.log('const [reg, status] => descrition([["reginald", "braithwaite"], "programmer"]);');
+console.log('reg \n//=> "reginald"');
+console.log('status \n//=> "programmer"');
