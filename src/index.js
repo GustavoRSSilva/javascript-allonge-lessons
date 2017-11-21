@@ -1,5 +1,5 @@
 (
-  () => console.log('Welcome')
+   () => console.log('Welcome')
 )();
 
 //  Why you should avoid using floating point equations with javascript
@@ -220,3 +220,56 @@ const description = (nameAndOccupation) => {
 console.log('const [reg, status] => descrition([["reginald", "braithwaite"], "programmer"]);');
 console.log('reg \n//=> "reginald"');
 console.log('status \n//=> "programmer"');
+
+//  pag85
+console.log('const numbers = (...nums) => nums');
+console.log('numbers(1, 2, 3, 4)\n// => [1, 2, 3, 4]');
+
+//  pag86
+console.log('Recursion is the root of computation, it trades description for time - Allan Perlis');
+console.log('[] //=> []');
+console.log('["braz", ...[]] //=> ["braz"]');
+console.log('["braz", ...["braz"]] //=> ["braz", "braz"]');
+console.log('["braz", ...["foo", "bar"]] //=> ["braz", "foo", "bar"]');
+
+//  pag87
+console.log('const [first, ...rest] = []\n first //=> undefined\n rest //=> []');
+
+console.log('recursive, needs a stop condition');
+console.log('const length ([first, ...rest]) => {\n return first === undefined ? 0 : 1 + lenght(rest)\n}');
+console.log('recursive algorithms follow the "divide and conquer" strategy for solving a problem:');
+console.log('1- Divide the problem into smaller problems.');
+console.log('2- If a small problem is solvable, solve the small problem.');
+console.log('3- If a smaller problem is not solvable, divide and conquer that problem.');
+console.log('4- When all the small problems are solved, compo the solution into one big solution.');
+
+//  pag92
+console.log('const sumSquare = ([first, ...rest]) => { return first === undefined ? [] : [first * first, sumSquare(rest)]; }');
+
+//  pag96
+console.log('Tail-call optimization: occurs when an fucntion\'s last act is to invoke abitehr function abd the return the whatever the other function returns. this methor is optimal to be user with recursivese functions.');
+const maybe = (fn) =>
+  function(...args) {
+    if (arg.length === 0) {
+      return;
+    } else {
+      for (let args of args) {
+        if (arg === null) {
+          return;
+        }
+        return fn.apply(this,  arg)
+      }
+    }
+}
+console.log('const maybe = (fn) => {\n  function(...args) {\n    if (arg.length === 0) {\n      return;\n    } else {\n      for (let args of args) {\n        if (arg === null) {\n          return;\n        }\n        return fn.apply(this,  arg)\n      }\n    }\n  }\n}');
+
+//  pag97
+console.log('converting to Tail call (Length)');
+const lengthDelaysWork = ([first, ...rest], numberToBeAdded) => {
+  if (rest === undefined) {
+    return numberToBeAdded;
+  }
+
+  return lengthDelaysWork(rest, numberToBeAdded + 1);
+}
+console.log('const lengthDelaysWork = ([first, ...rest], numberToBeAdded) => {\n  if (rest === undefined) {\n    return numberToBeAdded;\n  }\n  return lengthDelaysWork(restm numberToBeAdded + 1);\n}');
