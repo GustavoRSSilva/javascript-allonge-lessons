@@ -273,3 +273,23 @@ const lengthDelaysWork = ([first, ...rest], numberToBeAdded) => {
   return lengthDelaysWork(rest, numberToBeAdded + 1);
 }
 console.log('const lengthDelaysWork = ([first, ...rest], numberToBeAdded) => {\n  if (rest === undefined) {\n    return numberToBeAdded;\n  }\n  return lengthDelaysWork(restm numberToBeAdded + 1);\n}');
+
+
+// pag99
+console.log('We should use recursive, creating a stack of value every time it iterates, thats filigree.');
+
+//  page101
+console.log('we had previous seen that destruction parameters works the same way as descruction assigments Now we learned that w can create a default parameters asssigment.');
+console.log('const [first, secont = "two"] = ["one"]');
+console.log('first //=> "one", second //=> "two"');
+
+console.log('const [first, secont = "two"] = ["one", "primus"]');
+console.log('first //=> "one", second //=> "primus"');
+
+//  pag103
+console.log('now , with the help of Tail call, we see the mapWith function:');
+console.log('const mapWith = (fn, [first, ...rest], prepend = []) => first === undefined ? return prepend : mapWith(fn, rest, [...prepend, fn(first)]);');
+const mapWithTC = (fn, [first, ...rest], prepend = []) => first === undefined ? prepend : mapWithTC(fn, rest, [...prepend, fn(first)]);
+console.log(mapWithTC((x) => x * x, [1, 2, 3, 4, 5]));
+
+console.log('even this way, when we try with large array, we discover that this is very slow, slower than the .map');
