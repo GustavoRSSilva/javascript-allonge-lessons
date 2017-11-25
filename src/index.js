@@ -321,3 +321,13 @@ console.log('{ year: 2012, month: 6, day: 14 }["day"] //=> 14');
 //  pag111
 console.log('Expressions are used for key as well:');
 console.log('{ ["p" + "i"]: 3,14 } //=> { pi: 3,14 }');
+
+//  pag115
+console.log('Revising linked lists:');
+console.log('const oneTwoThree = { first: one, rest: { first: 2, rest: { first: 3, rest: EMPTY }}}');
+console.log('oneTwoThree.first //=> 1');
+console.log('oneTwoThree.rest.first //=> 2');
+
+
+console.log('sloopycope = (node) => node === EMPTY ? EMPTY : { first: node.first, rest: slopycopy(node.rest) \nor\n');
+console.log('const copy2 = (node, delayed = EMPTY) =>\n node === EMPTY ?\n  delayed\n  : copy2(node.rest, { first: node.first, rest: delayed})');
