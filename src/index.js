@@ -293,3 +293,31 @@ const mapWithTC = (fn, [first, ...rest], prepend = []) => first === undefined ? 
 console.log(mapWithTC((x) => x * x, [1, 2, 3, 4, 5]));
 
 console.log('even this way, when we try with large array, we discover that this is very slow, slower than the .map');
+console.log('The Javascript Engine actually copies the elements from prepend into the new array one at a time.');
+
+//  pag107
+console.log('Linked Lists:');
+console.log('They came from the Link language, that use the [first, ...rest] principle');
+console.log('ex: [1, [2, [3, [4, [5, null]]]]]');
+console.log('This Way:');
+console.log('const node5 = [5, null],\n      node4 = [4, node5],\n      node3 = [3, node4],\n      node2 = [2, node3],\n      node1 = [1, node2]');
+console.log('In Javascript it is stil much faster to get all the elements execpt the head from a linkedLin than an Array!!');
+
+//  pag108
+console.log('So why arrays?');
+console.log('Well Linked Lists are fast for a few things, likw taking off the first elemntes from na array, but nt for iterating over an list: point and chasing througth memory is quit a bit slower thanincrementing an index');
+
+//  pag109
+console.log('POJO - Plain Old Javascript Ojects');
+console.log('Lists are the "oldest" data structure in the hisorty of high level languages, because they map very close to the way the hardware is organized in a computer.');
+console.log('In Javascript an object is a map from string keys to values');
+
+//  pag110
+console.log('Javascrit as a listeral syntax for creating objects .This object maps values to the keys year, month and day:');
+console.log('{ year: 2012, month: 6, day: 14 }');
+console.log('{ year: 2012, month: 6, day: 14 } === { year: 2012, month: 6, day: 14 } //=> false');
+console.log('{ year: 2012, month: 6, day: 14 }["day"] //=> 14');
+
+//  pag111
+console.log('Expressions are used for key as well:');
+console.log('{ ["p" + "i"]: 3,14 } //=> { pi: 3,14 }');
