@@ -331,3 +331,21 @@ console.log('oneTwoThree.rest.first //=> 2');
 
 console.log('sloopycope = (node) => node === EMPTY ? EMPTY : { first: node.first, rest: slopycopy(node.rest) \nor\n');
 console.log('const copy2 = (node, delayed = EMPTY) =>\n node === EMPTY ?\n  delayed\n  : copy2(node.rest, { first: node.first, rest: delayed})');
+
+
+//  pag118
+console.log('InJavascript almost every type can mutate.');
+console.log('const name = { first: "Gustavo", last: "Silva" }');
+console.log('name.middle = "Rios" //=> {{ first: "Gustavo", last: "Silva", middle: "Rios"  }}');
+
+//  pag120
+console.log('You can motate a const, but cannot rebind it');
+
+console.log('const allHallowEve = [2012, 10, 31]');
+console.log('(function (halloween)) => {\n halloween = [2013, 10, 31]\n}(allHallowEve)');
+console.log('allHallowEve \n//=> [2012, 10, 31] ');
+
+console.log('but can mutate:');
+console.log('const allHallowEve = [2012, 10, 31]');
+console.log('(function (halloween)) => {\n halloween[0] = 2013\n}(allHallowEve)');
+console.log('allHallowEve \n//=> [2013, 10, 31] ');
