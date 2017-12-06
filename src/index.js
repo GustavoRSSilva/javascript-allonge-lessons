@@ -349,3 +349,142 @@ console.log('but can mutate:');
 console.log('const allHallowEve = [2012, 10, 31]');
 console.log('(function (halloween)) => {\n halloween[0] = 2013\n}(allHallowEve)');
 console.log('allHallowEve \n//=> [2013, 10, 31] ');
+
+//  pag122
+console.log('const oneTwoFive = [1, 2, 3, 4, 5]');
+console.log('const [one, two, threeToFive] = oneToFive');
+console.log('threeToFive[0] = "three"');
+console.log('threeToFive[1] = "four"');
+console.log('threeToFive[2] = "five"');
+console.log('// => ["three", "four", "five"]');
+console.log('this is a safe way to mutate the array');
+
+
+console.log('Avoiding motation: in general it is easier to reason about data doesnt change. Just use the data and the less time we have to think about mutating it, the safer it will be.');
+
+console.log('Reassignment');
+console.log('Javascript allows you tu re-assign value bound to paramenters');
+console.log('Javascript does not permit us to rebind a name that has been bound with const. We can shadown it by using const to declare a new bidding with a few functions or block scope, ut we cannot rebind a name that was bound with const in a existing scope.');
+
+
+console.log('let age = 50 \nage = 53 \n//=> 53');
+
+//  pag127
+console.log('Mixing Let and const');
+console.log('Some programmers dislike deliberately shadowing variables. The suggestions is that shadowing a variable is confusing code.');
+
+console.log('(() => {  let age = 49; \n if (true) { const age = 53 } \nage = 51;\n return age\n  })');
+console.log('//=> 51');
+
+console.log('(() => {  cosnt age = 49; \n if (true) { **let age = 53** } \nage = 51;\n return age\n  })');
+console.log('//=> ERROR: age is read-only');
+
+console.log('Var looks alot like Let');
+console.log('vai is function scoped, nto block scoped');
+
+console.log('var introductions = [], names = ["Karl" , "Frederich", "Gauss"]\n for(var i = 0; i < names.length; i++)\n introductions[i] = (soAndSo) => `hello, ${soAndSo}` my name is ${introductions[i]}\n}');
+console.log('introductions[1]("Reginald") //=> "hello, Reginald my name is undefined"');
+
+
+console.log('let introductions = [], names = ["Karl" , "Frederich", "Gauss"]\n for(let i = 0; i < names.length; i++)\n introductions[i] = (soAndSo) => `hello, ${soAndSo}` my name is ${introductions[i]}\n}');
+console.log('introductions[1]("Reginald") //=> "hello, Reginald my name is Frederich"');
+
+//  pag141
+console.log('Tortoise and the rabbit - Algorith to detect a loop in a linked list, in constant space.');
+
+const tortoiseAndHare = (aPair) => {
+  let tortoisePair = aPair,
+  harePair = aPair.rest;
+  while (true) {
+    if (isEmpty(tortoisePair) || isEmpty(harePair)) {
+      return false;
+    }
+
+    if(tortoisePair.first === harePair.first) {
+      return true;
+    }
+
+    harePair = harePair.rest;
+    if(isEmpty(harePair)) {
+      return false;
+    }
+
+    if(tortoisePair.first === harePair.first) {
+      return true;
+    }
+    tortoisePair = tortoisePair.rest;
+    harePair = harePair.rest;
+  }
+}
+
+console.log('const tortoiseAndHare = (aPair) => {\n  let tortoisePair = aPair,\n  harePair = aPair.rest;\n  while (true) {\n    if (isEmpty(tortoisePair) || isEmpty(harePair)) {\n      return false;\n    }\n    if(tortoisePair.first === harePair.first) {\n      return true;\n    }\n    harePair = harePair.rest;\n    if(isEmpty(harePair)) {\n      return false;\n    }\n    if(tortoisePair.first === harePair.first) {\n      return true;\n    }\n    tortoisePair = tortoisePair.rest;\n    harePair = harePair.rest;\n  }\n}');
+
+
+console.log('const aList = list(1, 2, 3, 4, 5)');
+console.log('tortoiseAndHare(aList) //=> false');
+console.log('forceAppend(aList, aList.rest.rest)');
+console.log('tortoiseAndHare(aList) //=> true');
+
+//  pag146
+console.log('We should never, mix and array iteration with the some of some of its parts.');
+
+//  pag150
+
+const fibonacciIterator = () => {
+  let previous = 0,
+  current = 1;
+  return () => {
+    const value = current;
+    [previous, current] = [current, current + previous];
+    return { done: false, value };
+  }
+}
+console.log('const fibonacciIterator = () => {\n  let previous = 0,\n  current = 1;\n  return () => {\n    const value = current;\n    [previous, current] = [current, current + previous];\n    return { done: false, value };\n  }\n}');
+
+//  pag151
+console.log('A ideia, a function that that an iterator and returns another iterator.');
+const take151 = (iterator, numberToTake) => {
+  let count = 0;
+  return () => {
+    if (++count <= numberToTake) {
+      return iterator;
+    } else {
+      return { done: true };
+    }
+  }
+}
+
+console.log('const take151 = (iterator, numberToTake) => {\n  let count = 0;\n  return () => {\n    if (++count <= numberToTake) {\n      return iterator;\n    } else {\n      return { done: true };\n    }\n  }\n}');
+
+const toArray151 = (iterator) => {
+  let eachIteration ,
+    array = [];
+
+  while (eachIteration = iterator(), !eachIteration.done) {
+    array.push(eachIteration.value);
+  }
+
+  return array;
+}
+
+console.log('const toArray151 = (iterator) {\n  let eachIteration ,\n    array = [];\n while (eachIteration = iterator(), !eachIteration.done) {\n    array.push(eachIteration.value);\n  }\n  return array;\n}');
+
+
+console.log('the Krestel and the idiot, create a function that always returns the same value');
+const k = (x) => (y) => (x);
+const fortyTwo = k(42);
+fortyTwo(6)
+fortyTwo('hello');
+console.log('const k = (x) => (y) => (x);');
+console.log('const fortyTwo = k(42);');
+console.log('fortyTwo(6)');
+console.log(fortyTwo(6));
+console.log('fortyTwo(\'hello\');');
+console.log(fortyTwo('hello'));
+
+
+console.log('This is very interisting, given two values, we can say that K always returns the first value k(x)(y) => x');
+console.log('Now, an interesting this happens when we pass functions to each parameter. Considere K(i). From what we just wrote, k(x)(y) => x, so k(i)(x) => i. Makes sense. Now let\'s tack one more invocation on : What is k(i)(x)(y)? IF K(i)(x) => i, then K(i)(x)(y) => i(y) witch is y.');
+
+//  pag170
+console.log('const mapWith = (fn) => (list) => list.map(fn)');
