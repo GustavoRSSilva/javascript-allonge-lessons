@@ -486,5 +486,19 @@ console.log(fortyTwo('hello'));
 console.log('This is very interisting, given two values, we can say that K always returns the first value k(x)(y) => x');
 console.log('Now, an interesting this happens when we pass functions to each parameter. Considere K(i). From what we just wrote, k(x)(y) => x, so k(i)(x) => i. Makes sense. Now let\'s tack one more invocation on : What is k(i)(x)(y)? IF K(i)(x) => i, then K(i)(x)(y) => i(y) witch is y.');
 
+//  pag163
+console.log('Say please');
+console.log('We keep using the aPair === EMPTY ? doSomething: doSomethingElse');
+console.log('We can reserve this isntead of asking a pair if it is empty and then deciding what to do, we can ask the pair to do it for us. Here\'s length again');
+const length163 = (list) => list(
+  () => null,
+  (aPair => 1 + length163(aPair(rest)))
+);
+
+
+//  pag167
+console.log('Instead of directly manipulating part of an entity, pass it as a function and have it call our function with the part we want');
+console.log('And instead of testing some property os an entity and making a choise of our own ? : (or if), pass the entity the work we want done for each case and lt it test itself.');
+
 //  pag170
 console.log('const mapWith = (fn) => (list) => list.map(fn)');
