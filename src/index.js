@@ -502,3 +502,130 @@ console.log('And instead of testing some property os an entity and making a choi
 
 //  pag170
 console.log('const mapWith = (fn) => (list) => list.map(fn)');
+
+
+//  pag172
+console.log('const mapWith = (fn) => (list) => list.map(fn)');
+
+const queue = function() {
+  Object.assign(this, {
+    array: [],
+    head: 0,
+    tail: -1,
+  })
+}
+
+Object.assign(queue.prototype, {
+  pushTail(value) {
+    //..
+  },
+  pullHead() {
+    //..
+  },
+  isEmpty() {
+    //..
+  },
+})
+
+console.log('const queue = function() {\n  object.assign(this, {\n    array: [],\n    head: 0,\n    tail: -1,\n  })\n}\nobject.assign(queue.prototype, {\n  pushTail(value) {\n    //..\n  }\n  pullHead() {\n    //..\n  }\n  isEmpty() {\n    //..\n  }\n})');
+
+console.log('Assigning properties from one object to another (also called "cloning" or "shallow copying") is a basic building block that we will later use to implement more advanced paradigms and mixins.');
+
+console.log('Y combinators');
+console.log('const Y = (f) => ( x => f(v => x(x)(v))( x => f(v) => x(x)(v))');
+console.log('you can use it like this:');
+console.log('const factorial = Y(function (fac) { return function(n) { return n === 0 ? 1 : n * fac(n - 1) } })');
+console.log('Why? it enables you to make recursive function without needing to bind a function to a name in an enviroment. This has little pratical utility in javascript. With fixed-pointing combinators, it is possible to compute everything without binding names.');
+
+//  pag180
+console.log('An expression is any valid unit of code that resolves to a value.');
+
+console.log('Quasi literal aka templating strings or string interpolation Expression => `A popular number is ${num}`');
+console.log('Quasi literal are easier to read, and they are evaluated late, when that line or lines of code is evaluated.');
+
+const stack1 = () => ({
+  array: [],
+  index: -1,
+  push (value) {
+    return this.array[this.index += 1] = value;
+  },
+  pop() {
+    const value = this.array[this.index];
+    this.array[this.index] = undefined;
+    if (this.index >= 0) {
+      this.index -= 1;
+    }
+
+    return value;
+  },
+  isEmpty() {
+    return this.index < 0;
+  },
+  iterator() {
+    let iteratorIndex = this.index;
+    return () => {
+      if (iteratorIndex > this.index) {
+        iteratorIndex = this.index;
+      }
+
+      if (iteratorIndex < 0) {
+        return { done: true };
+      }
+      else {
+        return { done: false, value: this.array[iteratorIndex--]}
+      }
+    }
+  }
+})
+
+console.log('const stack1 = () => ({\n  array: [],\n  index: -1,\n  push (value) {\n    return this.array[this.index += 1] = value;\n  },\n  pop() {\n    const value = this.array[this.index];\n    this.array[this.index] = undefined;\n    if (this.index >= 0) {\n      this.index -= 1;\n    }\n    return value;\n  },\n  isEmpty() {\n    return this.index < 0;\n  },\n  iterator() {\n    let iteratorIndex = this.index;\n    return () => {\n      if (iteratorIndex > this.index) {\n        iteratorIndex = this.index;\n      }\n      if (iteratorIndex < 0) {\n        return { done: true };\n      }\n      else {\n        return { done: false, value: this.array[iteratorIndex--]}\n      }\n    }\n  }\n})');
+
+console.log('there is a sum function implement as fold over a functional iterator');
+const iteratorSum = (iterator) => {
+  let eachiteration,
+  sun = 0;
+  while((eachiteration = iterator(), !eachiteration.done)) {
+    sum += eachiteration.value;
+  }
+  return sum;
+}
+console.log('const iteratorSum = (iterator) => {\n  let eachiteration,\n  sun = 0;\n  while((eachiteration = iterator(), !eachiteration.done)) {\n    sum += eachiteration.value;\n  }\n  return sum;\n}');
+
+const stack3 = () => ({
+  array: [],
+  index: -1,
+  push (value) {
+    return this.array[this.index += 1] = value;
+  },
+  pop() {
+    const value = this.array[this.index];
+    this.array[this.index] = undefined;
+    if (this.index >= 0) {
+      this.index -= 1;
+    }
+
+    return value;
+  },
+  isEmpty() {
+    return this.index < 0;
+  },
+  [Symbol.iterator] () {
+    let iteratorIndex = this.index;
+    return {
+      next() {
+        if (iteratorIndex > this.index) {
+          iteratorIndex = this.index;
+        }
+
+        if (iteratorIndex < 0) {
+          return { done: true };
+        }
+        else {
+          return { done: false, value: this.array[iteratorIndex--]}
+        }
+      }
+    }
+  }
+})
+
+console.log('const stack3 = () => ({\n  array: [],\n  index: -1,\n  push (value) {\n    return this.array[this.index += 1] = value;\n  },\n  pop() {\n    const value = this.array[this.index];\n    this.array[this.index] = undefined;\n    if (this.index >= 0) {\n      this.index -= 1;\n    }\n    return value;\n  },\n  isEmpty() {\n    return this.index < 0;\n  },\n  [Symbol.iterator] () {\n    let iteratorIndex = this.index;\n    return {\n      next() {\n        if (iteratorIndex > this.index) {\n          iteratorIndex = this.index;\n        }\n        if (iteratorIndex < 0) {\n          return { done: true };\n        }\n        else {\n          return { done: false, value: this.array[iteratorIndex--]}\n        }\n      }\n    }\n  }\n})\n');
