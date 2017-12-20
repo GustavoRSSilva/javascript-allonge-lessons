@@ -4,7 +4,8 @@
   "description": "lessons from the book javascript allonge",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "rest": "node src/continuation.js"
   },
   "repository": {
     "type": "git",
