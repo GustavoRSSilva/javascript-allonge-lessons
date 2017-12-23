@@ -21,6 +21,13 @@
   },
   "homepage": "https://github.com/GustavoRSSilva/javascript-allonge-lessons#readme",
   "dependencies": {
+    "eslint": "^4.13.1",
     "plop": "^1.8.0"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1"
   }
 }
