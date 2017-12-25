@@ -211,3 +211,71 @@ console.log('Or you can do this way');
 // }
 
 console.log('function * mapWith (fn, iterable) {\n  for (const element of iterable) {\n    yield fn(element);\n  }\n}');
+
+const EMPTY = {
+  isEmpty: () => true,
+}
+const isEmpty = (node) => node === EMPTY;
+const stack =  {
+    array: [],
+    index: -1,
+    push: function (value) {
+      return this.array[this.index += 1] = value;
+    },
+    [Symbol.iterator]: function() {
+      let iterationIndex = this.index;
+      return {
+        next: () => {
+          if(iterationIndex > this.index) {
+            iterationIndex = this.index;
+          }
+          if (iterationIndex < 0) {
+            return {done: true};
+          }
+          else {
+            return {done: false, value: this.array[iterationIndex--]};
+          }
+        }
+      }
+    },
+    from: function(iterable) {
+      for (let element of iterable) {
+        this.push(element);
+      }
+    
+      return this.array;
+    },
+    first: function() {
+      return this[Symbol.iterator]().next().value;
+    },
+  };
+
+stack.from([1,2,3,4,5])
+.map((x) => {
+  console.log(`squaring ${x}`);
+  return x * x;
+})
+.filter((x) => {
+  console.log(`filtering ${x}`);
+  return x % 2 ==0
+})
+
+//  pag262
+// function * zip(...iterables) {
+//   const iterators = iterables.map((iterable) => iterables[Symbol.iterator]());
+//   while (true) {
+//     const pairs = iterators.map((j) => j.next()),
+//     dones = pairs.map((p) => p.done),
+//     values = pairs.map((p) => p.value);
+
+//     if (dones.indexOf(true) >= 0) break;
+//     yield values;
+//   }
+// }
+console.log('Run multiple array, stop when the first stops');
+console.log('function * zip(...iterables) {\n  const iterators = iterables.map((iterable) => iterables[Symbol.iterator]());\n  while (true) {\n    const pairs = iterators.map((j) => j.next()),\n    dones = pairs.map((p) => p.done),\n    values = pairs.map((p) => p.value);\n    if (dones.indexOf(true) >= 0) break;\n    yield values;\n  }\n}');
+
+//  pag263
+const first = (iterable) => iterable[Symbol.iterator]().next().value;
+
+console.log(first([1,2,6]));
